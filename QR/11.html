@@ -1,18 +1,48 @@
 <html>
     <head>
         <title>Mille et une vignes</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="../style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1" /> 
 		<meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-		<script type="text/javascript" src="script.js"></script>
+		<script type="text/javascript" src="../script.js"></script>
     </head>
     <body>
 		<div html-file="header/header.html"></div>
         <main>
-            
-            <div>
-				QR
+            <div class="qr_titre">
+				THEATRE GREC OU ROMAIN ?
 			</div>
+			
+			<div class="qr_illustration">
+				<img src="../images/QR11_1.jpg"/>
+			</div>
+			<div class="qr_question_titre">
+				Ce théâtre est-il grec ou romain ? 
+			</div>
+			<div class="qr_question_qcm_container">
+				<div class="qr_question_qcm"><input type="checkbox" id="qcm_11" name="qcm_11" onclick="checkQcm(this, 'Vrai')"><label for="qcm_11">Il est grec</label></div>
+				<div class="qr_question_qcm"><input type="checkbox" id="qcm_12" name="qcm_12" onclick="checkQcm(this, 'Faux')"><label for="qcm_12">Il est romain</label></div>
+				<div class="qr_qcm_correction"></div>
+				<div class="qr_qcm_reponse">
+					Réponse détaillée : C’est ici un magnifique exemple de théâtre grec, reconnaissable notamment au fait que l’orchestra est ronde.
+				</div>
+			</div>
+			
+			<div class="qr_illustration">
+				<img src="../images/QR11_2.jpg"/>
+			</div>
+			<div class="qr_question_titre">
+				Ce théâtre est-il grec ou romain ? 
+			</div>
+			<div class="qr_question_qcm_container">
+				<div class="qr_question_qcm"><input type="checkbox" id="qcm_21" name="qcm_21" onclick="checkQcm(this, 'Faux')"><label for="qcm_21">Il est grec</label></div>
+				<div class="qr_question_qcm"><input type="checkbox" id="qcm_22" name="qcm_22" onclick="checkQcm(this, 'Vrai')"><label for="qcm_22">Il est romain</label></div>
+				<div class="qr_qcm_correction"></div>
+				<div class="qr_qcm_reponse">
+					Réponse détaillée : Cette image montre un théâtre romain ! Pour le reconnaître, regarde l’orchestra, qui est en demi-cercle. En plus, le mur derrière les acteurs est bien plus imposant, et leur permettait de l’utiliser pour y accrocher les décors de la pièce.
+				</div>
+			</div>
+			
         </main>
     </body>
 </html>

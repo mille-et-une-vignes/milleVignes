@@ -1,0 +1,11 @@
+.qr_illustration img {
+	max-height:300px;
+}
+
+.qr_qcm_reponse {
+	visibility: hidden;
+}
+
+.qr_qcm_correction {
+	visibility: hidden;
+}
