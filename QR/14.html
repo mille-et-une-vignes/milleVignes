@@ -6,13 +6,40 @@
 		<meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
 		<script type="text/javascript" src="script.js"></script>
     </head>
-    <body>
+	<script>
+		function drawTextBloc(text, x, y, dx, dy, fontSize, colorRect) {
+			var ctx = document.getElementById("schema").getContext("2d");
+			ctx.font = fontSize + "px serif";
+			ctx.textAlign="center";
+			ctx.textBaseline = "middle";
+			ctx.fillStyle= colorRect;
+			ctx.fillRect(x, y, dx, dy);
+			ctx.fillStyle= "black";
+			ctx.fillText(text, x + dx / 2, y + dy / 2);
+		}
+		
+		function drawCanvas() {
+			drawTextBloc("LES MAGISTRATS", 20, 20, 150, 30, 16, "#c5e0b4");
+			drawTextBloc("LE SENAT", 330, 20, 150, 30, 16, "#f8cbad");
+			drawTextBloc("LES COMICES", 20, 100, 150, 30, 16, "#ffd966");
+			drawTextBloc("LES CENSEURS", 330, 100, 150, 30, 16, "#bdd7ee");
+		}
+		
+	</script>
+    <body onload="drawCanvas()">
 		<div html-file="header/header.html"></div>
         <main>
-            
-            <div>
-				QR
+            <div class="qr_titre">
+				LA POLITIQUE ROMAINE
 			</div>
+			
+			<div class="qr_text">
+				<p>
+					La politique romaine est organisée et régie par quatre entités principales, sélectionnez celle qui vous intéresse pour en savoir plus sur ses fonctions et ses pouvoirs.
+				</p>
+			</div>
+			
+			<canvas id="schema" width="500" height="150"></canvas>
         </main>
     </body>
 </html>
