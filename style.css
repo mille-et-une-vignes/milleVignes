@@ -9,3 +9,11 @@
 .qr_qcm_correction {
 	visibility: hidden;
 }
+
+.qr_question_frame {
+	display: none;
+}
+
+.qr_qcm_nextButton {
+	
+}

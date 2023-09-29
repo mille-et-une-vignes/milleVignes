@@ -20,6 +20,14 @@ function getQcmContainer(elem) {
 	return elem.closest(".qr_question_qcm_container");
 }
 
+function goToFrame(frameId) {
+	for(var frame of document.getElementsByClassName("qr_question_frame")) {
+		frame.style.display = "none";
+	}
+	var frameToDisplay = document.getElementById(frameId);
+	frameToDisplay.style.display = "block";
+}
+
 function drawTextBloc(text, x, y, dx, dy, fontSize, colorRect) {
 	var ctx = document.getElementById("schema").getContext("2d");
 	ctx.font = fontSize + "px serif";

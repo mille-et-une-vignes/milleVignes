@@ -9,10 +9,85 @@
     <body>
 		<div html-file="header/header.html"></div>
         <main>
-            
-            <div>
-				QR
+            <div class="qr_titre">
+				LES ORDRES DES TEMPLES
 			</div>
+			
+			<div class="qr_question_frame" id="frame1" style = "display:block">
+				<div class="qr_question_titre">
+					Vous souvenez-vous de ce qu’est un ordre ? 
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_11" name="qcm_11" onclick="checkQcm(this, '')"><label for="qcm_11">OUI !</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_12" name="qcm_12" onclick='checkQcm(this, "Les Romains et les Grecs utilisent principalement trois types de colonnes différentes, les colonnes doriques, les colonnes ioniques qui ont deux spirales et les colonnes corinthiennes qui possèdent des feuilles d’acanthe. Il existe encore plein d’autres types de colonnes, par exemple, les cariatides prennent des formes de femmes.")'><label for="qcm_12">NON, c’est quoi un ordre ?</label></div>
+					<div class="qr_qcm_correction"></div>
+					<div class="qr_qcm_reponse">
+						<button class="qr_qcm_nextButton" onclick="goToFrame('frame2')">passer à la seconde question !</button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="qr_question_frame" id="frame2">
+				<div class="qr_question_titre">
+					Reconnaissez-vous l’ordre des colonnes du temple qui se trouve devant vous ? 
+				</div>
+				
+				<div class="qr_illustration">
+					<img src="../images/QR22_1.jpg"/>
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_21" name="qcm_21" onclick='checkQcm(this, "Oui bravo, comme celles que nous avons vues au théâtre.")'><label for="qcm_21">Ce sont des colonnes doriques !</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_22" name="qcm_22" onclick='checkQcm(this, "Non, les colonnes corinthiennes ont des feuilles d’acanthe, celle-ci sont doriques.")'><label for="qcm_22">Ces colonnes sont corinthiennes !</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_23" name="qcm_23" onclick='checkQcm(this, "Non, les colonnes ioniques ont des spirales, celle-ci sont doriques.")'><label for="qcm_23">Ce sont des colonnes ioniques !</label></div>
+					<div class="qr_qcm_correction"></div>
+					<div class="qr_qcm_reponse">
+						<button class="qr_qcm_nextButton" onclick="goToFrame('frame3')">Question suivante</button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="qr_question_frame" id="frame3">
+				<div class="qr_question_titre">
+					Reconnaissez-vous l’ordre des colonnes du temple qui se trouve devant vous ? 
+				</div>
+				
+				<div class="qr_illustration">
+					<img src="../images/QR22_2.jpg"/>
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_31" name="qcm_31" onclick='checkQcm(this, "Non")'><label for="qcm_31">Ce sont des colonnes doriques !</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_32" name="qcm_32" onclick='checkQcm(this, "Oui")'><label for="qcm_32">Ces colonnes sont corinthiennes !</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_33" name="qcm_33" onclick='checkQcm(this, "Non")'><label for="qcm_33">Ce sont des colonnes ioniques !</label></div>
+					<div class="qr_qcm_correction"></div>
+					<div class="qr_qcm_reponse">
+						<button class="qr_qcm_nextButton" onclick="goToFrame('frame4')">Question suivante</button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="qr_question_frame" id="frame4">
+				<div class="qr_question_titre">
+					Reconnaissez-vous l’ordre des colonnes du temple qui se trouve devant vous ? 
+				</div>
+				
+				<div class="qr_illustration">
+					<img src="../images/QR22_3.jpg"/>
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_41" name="qcm_41" onclick='checkQcm(this, "Non")'><label for="qcm_41">Ce sont des colonnes doriques !</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_42" name="qcm_42" onclick='checkQcm(this, "Non")'><label for="qcm_42">Ces colonnes sont corinthiennes !</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_43" name="qcm_43" onclick='checkQcm(this, "Oui")'><label for="qcm_43">Ce sont des colonnes ioniques !</label></div>
+					<div class="qr_qcm_correction"></div>
+					<div class="qr_qcm_reponse">
+						<button class="qr_qcm_nextButton" onclick="goToFrame('frame5')">Question suivante</button>
+					</div>
+				</div>
+			</div>
+			
         </main>
     </body>
 </html>
