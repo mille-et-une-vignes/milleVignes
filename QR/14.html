@@ -1,30 +1,28 @@
 <html>
     <head>
         <title>Mille et une vignes</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="../style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1" /> 
 		<meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-		<script type="text/javascript" src="script.js"></script>
+		<script type="text/javascript" src="../script.js"></script>
     </head>
 	<script>
-		function drawTextBloc(text, x, y, dx, dy, fontSize, colorRect) {
-			var ctx = document.getElementById("schema").getContext("2d");
-			ctx.font = fontSize + "px serif";
-			ctx.textAlign="center";
-			ctx.textBaseline = "middle";
-			ctx.fillStyle= colorRect;
-			ctx.fillRect(x, y, dx, dy);
-			ctx.fillStyle= "black";
-			ctx.fillText(text, x + dx / 2, y + dy / 2);
-		}
-		
 		function drawCanvas() {
 			drawTextBloc("LES MAGISTRATS", 20, 20, 150, 30, 16, "#c5e0b4");
 			drawTextBloc("LE SENAT", 330, 20, 150, 30, 16, "#f8cbad");
 			drawTextBloc("LES COMICES", 20, 100, 150, 30, 16, "#ffd966");
 			drawTextBloc("LES CENSEURS", 330, 100, 150, 30, 16, "#bdd7ee");
+			
+			drawArrow(180, 115, 320, 115, 4, "#ffd966");
+			drawArrow(405, 90, 405, 60, 4, "#bdd7ee");
+			drawArrow(320, 35, 180, 35, 4, "#f8cbad");
+			drawArrow(95, 90, 95, 60, 4, "#ffd966");
+			
+			drawTextBloc("élisent", 200, 90, 110, 20, 12, "#ffffff");
+			drawTextBloc("nomment", 340, 70, 60, 20, 12, "#ffffff");
+			drawTextBloc("conseille et contrôle", 200, 40, 110, 20, 12, "#ffffff");
+			drawTextBloc("élisent", 100, 70, 50, 20, 12, "#ffffff");
 		}
-		
 	</script>
     <body onload="drawCanvas()">
 		<div html-file="header/header.html"></div>
