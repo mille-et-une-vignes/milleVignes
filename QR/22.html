@@ -88,6 +88,57 @@
 				</div>
 			</div>
 			
+			<div class="qr_question_frame" id="frame5">
+				<div class="qr_question_titre">
+					Le sommet des colonnes n’est pas le seul élément qui différencie l’ordre dorique, de l’ordre ionique et de l’ordre corinthien. Par exemple, la frise d’un temple dorique est une succession de métopes et de triglyphes, tandis que l’ordre ionique ou corinthien présente un bas-relief continu.
+				</div>
+				<button class="qr_qcm_nextButton" onclick="goToFrame('frame6')">Question suivante</button>
+				
+				<div class="qr_illustration">
+					<img src="../images/QR22_4.jpg"/>
+				</div>
+			</div>
+			
+			<div class="qr_question_frame" id="frame6">
+				<div class="qr_question_titre">
+					D’après toi de quel ordre est ce temple de Poséidon ? 
+				</div>
+				
+				<div class="qr_illustration">
+					<img src="../images/QR22_5.jpg"/>
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_51" name="qcm_51" onclick='checkQcm(this, "Absolument, vous avez bien observé les métopes et les triglyphes, ainsi que les chapiteaux et lisses.")'><label for="qcm_51">Dorique</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_52" name="qcm_52" onclick='checkQcm(this, "Non, les triglyphes indiquent qu’il s’agit d’un temple dorique.")'><label for="qcm_52">Ionique</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_53" name="qcm_53" onclick='checkQcm(this, "Non, les triglyphes indiquent qu’il s’agit d’un temple dorique.")'><label for="qcm_53">Corinthien</label></div>
+					<div class="qr_qcm_correction"></div>
+					<div class="qr_qcm_reponse">
+						<button class="qr_qcm_nextButton" onclick="goToFrame('frame7')">Question suivante</button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="qr_question_frame" id="frame7">
+				<div class="qr_question_titre">
+					D’après vous, de quel ordre est ce temple d’Athéna ?
+				</div>
+				
+				<div class="qr_illustration">
+					<img src="../images/QR22_6.jpg"/>
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_61" name="qcm_61" onclick='checkQcm(this, "Non, les spirales en volutes appartiennent à un temple ionique.")'><label for="qcm_61">Dorique</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_62" name="qcm_62" onclick='checkQcm(this, "Exactement, vous avez bien observé les volutes en spiral sur les cotés.")'><label for="qcm_62">Ionique</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_63" name="qcm_63" onclick='checkQcm(this, "Non, les spirales en volutes appartiennent à un temple ionique.")'><label for="qcm_63">Corinthien</label></div>
+					<div class="qr_qcm_correction"></div>
+					<div class="qr_qcm_reponse">
+						<button class="qr_qcm_nextButton" onclick="goToFrame('frame8')">Question suivante</button>
+					</div>
+				</div>
+			</div>
+			
         </main>
     </body>
 </html>
