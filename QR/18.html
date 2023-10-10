@@ -6,24 +6,53 @@
 		<meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
 		<script type="text/javascript" src="../script.js"></script>
     </head>
+    <script>
+        function zoneDetail(zoneNb) {
+            var txt = "";
+            if(zoneNb == 1) {
+                txt = "Zone taberna : Une taberna est un local ouvert sur la rue qui est destiné à la vente de produits. Nous pouvions y acheter du pain, du vin, des vêtements ou encore des bijoux. C’est de là d’ailleurs que vient le mot “taverne” qui désigne un lieu où nous pouvons boire et manger au Moyen-Âge.";
+            } else if(zoneNb == 2) {
+                txt = "Zone portique : Les Romains aimaient les galeries couvertes et en construisait même sur les trottoirs devant les domus, dans les marchés ou sur le forum. Le portique pouvait être simple comme celui-ci, ou double avec une seconde rangée de colonnes. Le portique permet de fournir de l’ombre et de la fraicheur pendant les mois d’été.";
+            } else if(zoneNb == 3) {
+                txt = "Zone triclinium : Le triclinium est la salle de banquet des Romains. La salle comptait une table est des lits de banquet. Chaque lit pouvait accueillir trois personnes couchées et le placement des convives autour de la table était régit par des règles strictes.";
+            } else if(zoneNb == 4) {
+                txt = "Zone cubiculum : Le cubiculum est une chambre privée qui servait autant à dormir qu’à organiser des réunions de travail. Ces chambres sont accessibles directement depuis l’atrium, mais dans les périodes les plus tardives pouvaient aussi être adjacentes au péristyle.";
+            } else if(zoneNb == 5) {
+                txt = "Zone atrium et impluvium : Cette pièce centrale se nomme l’atrium, il s’agit d’une cour intérieure avec un bassin (impluvium) permettant de récolter les eaux de pluie via le compluvium, une ouverture dans le toit. L’eau était précieuse et était utilisée pour les besoins domestiques tels que la cuisine, la lessive, les bains ou encore le ménage.";
+            } else if(zoneNb == 6) {
+                txt = "Zone péristyle : Le péristyle est une galerie couverte bordée de colonnes qui entoure une cour intérieure d’une domus. Très agréable pour se promener et prendre l’air quand il pleut ! Il existe aussi des péristyles extérieurs qui font par exemple tout le tour d’un temple.";
+            }
+            document.getElementById("infoZones").innerHTML = txt;
+        }
+    </script>
     <body>
 		<div html-file="header/header.html"></div>
         <main>
-            <div>
-				QR
+            <div class="qr_titre">
+				LES MAISONS ROMAINES
+			</div>
+			<div class="qr_text">
+				<p>
+					En ville, les Romains habitaient une domus (maison familiale) ou une insula (immeuble jusqu’à cinq étages), tandis qu’à la campagne, ils occupaient une villa, c’est-à-dire un grand bâtiment avec un pars urbana pour habiter et une pars rustica pour les travaux agricoles. Balade-toi dans cette domus typique des cités romaines comme Pompéi ou plus proche d’ici à Avenches. Il vous suffit de cliquer sur un endroit qui vous intrigue pour en savoir plus à son sujet ! 
+				</p>
 			</div>
             <figure id="projectsvg">
-                <svg version="1.1"  viewBox="0 0 4534 3383">
+                <svg version="1.1"  viewBox="0 0 4534 3383" width="800">
               
                     <!-- set your background image -->
                     <image width="4534" height="3383" href="../images/QR18.jpg" />
               
                   <!-- create the regions -->
-                    <a href="../images/QR18.jpg">
-                        <polygon points="381 1736, 163 1928, 165 2174, 377 2572, 621 2380, 605 2082" style="fill:lime;stroke:purple;stroke-width:1" />
-                    </a>
+ 
+                    <polygon onclick="zoneDetail(1)" points="381 1736, 163 1928, 165 2174, 377 2572, 621 2380, 605 2082" fill="lime" stroke="yellow" stroke-width="10" fill-opacity="50%"/>
+                    <polygon onclick="zoneDetail(2)" points="725 2388, 729 2564, 1117 3208, 1573 2976, 1565 2796, 1141 2220" fill="purple" stroke="yellow" stroke-width="10" fill-opacity="50%" />
+                    <polygon onclick="zoneDetail(3)" points="1353 2512, 1569 2800, 1569 2980, 2157 2696, 2137 2520, 1901 2252" fill="cyan" stroke="yellow" stroke-width="10" fill-opacity="50%" />
+                    <polygon onclick="zoneDetail(4)" points="1917 2252, 2141 2516, 2149 2692, 3369 2080, 3373 1932, 3097 1724" fill="magenta" stroke="yellow" stroke-width="10" fill-opacity="50%" />
+                    <polygon onclick="zoneDetail(5)" points="849 1352, 1009 1540, 1013 2224, 1137 2220, 1357 2504, 2289 2088, 2289 1472, 1785 1056" fill="blue" stroke="yellow" stroke-width="10" fill-opacity="50%" />
+                    <polygon onclick="zoneDetail(6)" points="2205 1017, 2629 1341, 2625 1925, 3101 1717, 3097 1385, 3767 1113, 3083 729" fill="red" stroke="yellow" stroke-width="10" fill-opacity="50%" />
                 </svg>
-              </figure>   
+            </figure>
+            <div class="figure_info" id="infoZones"></div>
         </main>
     </body>
 </html>
