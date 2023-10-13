@@ -29,7 +29,7 @@ function goToFrame(frameId) {
 }
 
 function drawTextBloc(text, x, y, dx, dy, fontSize, colorRect) {
-	var ctx = document.getElementById("schema").getContext("2d");
+	var ctx = document.getElementById("canvas").getContext("2d");
 	ctx.font = fontSize + "px serif";
 	ctx.textAlign="center";
 	ctx.textBaseline = "middle";
@@ -39,7 +39,7 @@ function drawTextBloc(text, x, y, dx, dy, fontSize, colorRect) {
 	ctx.fillText(text, x + dx / 2, y + dy / 2);
 }
 function drawArrow(fromx, fromy, tox, toy, arrowWidth, color){
-	var ctx = document.getElementById("schema").getContext("2d");
+	var ctx = document.getElementById("canvas").getContext("2d");
 	var headlen = 10;
 	var angle = Math.atan2(toy-fromy,tox-fromx);
  

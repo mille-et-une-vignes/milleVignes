@@ -5,13 +5,280 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" /> 
 		<meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
 		<script type="text/javascript" src="../script.js"></script>
+		<script>
+			var villes = [
+				{
+					"nom":"Sedunum",
+					"posStartX":20,
+					"posStartY":20,
+					"width":150,
+					"height":30,
+					"color":"#ffffff",
+					"sourceId":1
+				},
+				{
+					"nom":"Aventicum",
+					"posStartX":20,
+					"posStartY":70,
+					"width":150,
+					"height":30,
+					"color":"#ffffff",
+					"sourceId":2
+				},
+				{
+					"nom":"Eburodunum",
+					"posStartX":20,
+					"posStartY":120,
+					"width":150,
+					"height":30,
+					"color":"#ffffff",
+					"sourceId":3
+				},
+				{
+					"nom":"Genava",
+					"posStartX":20,
+					"posStartY":170,
+					"width":150,
+					"height":30,
+					"color":"#ffffff",
+					"sourceId":4
+				},
+				{
+					"nom":"Octodurum",
+					"posStartX":20,
+					"posStartY":220,
+					"width":150,
+					"height":30,
+					"color":"#ffffff",
+					"sourceId":5
+				},
+				{
+					"nom":"Vibiscum",
+					"posStartX":20,
+					"posStartY":270,
+					"width":150,
+					"height":30,
+					"color":"#ffffff",
+					"sourceId":6
+				},
+				{
+					"nom":"Martigny",
+					"posStartX":300,
+					"posStartY":20,
+					"width":150,
+					"height":30,
+					"color":"#ffffff",
+					"linkedToId":null,
+					"targetId":5
+				},
+				{
+					"nom":"Sion",
+					"posStartX":300,
+					"posStartY":70,
+					"width":150,
+					"height":30,
+					"color":"#ffffff",
+					"linkedToId":null,
+					"targetId":1
+				},
+				{
+					"nom":"Vevey",
+					"posStartX":300,
+					"posStartY":120,
+					"width":150,
+					"height":30,
+					"color":"#ffffff",
+					"linkedToId":null,
+					"targetId":6
+				},
+				{
+					"nom":"Avenches",
+					"posStartX":300,
+					"posStartY":170,
+					"width":150,
+					"height":30,
+					"color":"#ffffff",
+					"linkedToId":null,
+					"targetId":2
+				},
+				{
+					"nom":"Yverdon-les-Bains",
+					"posStartX":300,
+					"posStartY":220,
+					"width":150,
+					"height":30,
+					"color":"#ffffff",
+					"linkedToId":null,
+					"targetId":3
+				},
+				{
+					"nom":"Genève",
+					"posStartX":300,
+					"posStartY":270,
+					"width":150,
+					"height":30,
+					"color":"#ffffff",
+					"linkedToId":null,
+					"targetId":4
+				}
+				];
+				
+			window.villes = villes;
+				
+			function initCanvas() {
+				var canvas = document.getElementById('canvas');
+				var ctx = canvas.getContext('2d');
+				var startPos = {x: 0, y: 0};
+				var lineCoord = {x: 0, y: 0};
+				drawVilles();
+				
+				var villeSourceId = null;
+				
+				function drawVilles() {
+					for(var ville of villes) {
+						drawTextBloc(ville.nom, ville.posStartX, ville.posStartY, ville.width, ville.height, 16, ville.color);
+					}
+				}
+				
+				function drawLinks() {
+					for(var villeTarget of villes.filter(v => v.linkedToId)) {
+						for(var villeSource of villes.filter(v => v.sourceId == villeTarget.linkedToId)) {
+							drawLineBetweenCities(villeSource, villeTarget);
+							checkLink(villeSource, villeTarget);
+						}
+					}
+				}
+				
+				function checkLink(ville1, ville2) {
+					if(ville1.sourceId == ville2.targetId) {
+						ville1.color = "#22aa22";
+						ville2.color = "#22aa22";
+					} else {
+						ville1.color = "#aa2222";
+						ville2.color = "#aa2222";
+					}
+				}
+				
+				function drawLineBetweenCities(ville1, ville2) {
+					drawLine(computeLinkPointForCity(ville1), computeLinkPointForCity(ville2));
+				}
+
+				function getClientOffset(event) {
+					var {pageX, pageY} = event.touches ? event.touches[0] : event;
+					var x = pageX - canvas.offsetLeft;
+					var y = pageY - canvas.offsetTop;
+					return {x, y} 
+				}
+
+				function drawLine(start, end) {
+				   ctx.beginPath();
+				   ctx.moveTo(start.x, start.y);
+				   ctx.lineTo(end.x, end.y);
+				   ctx.stroke();
+				}
+				
+				function coordsInsideCity(ville, x, y) {
+					var result = false;
+					if(ville.posStartX <= x && (ville.posStartX + ville.width) >= x) {
+						if(ville.posStartY <= y && (ville.posStartY + ville.height) >= y) {
+							result = true;
+						}
+					}
+					return result;
+				}
+				
+				function computeLinkPointForCity(ville) {
+					if(ville.sourceId) {
+						return {x : ville.posStartX + ville.width, y : ville.posStartY + ville.height / 2};
+					}
+					if(ville.targetId) {
+						return {x : ville.posStartX, y : ville.posStartY + ville.height / 2};
+					}
+				}
+				
+				function clearOldLink(ville) {
+					for(var target of villes.filter(v => v.linkedToId == ville.sourceId)) {
+						target.linkedToId = null;
+						ville.color = "#ffffff";
+						target.color = "#ffffff";
+						clearCanvas();
+					}
+				}
+
+				function mouseDownListener(event) {
+					clearCanvas();
+					startPos = getClientOffset(event);
+					for(var ville of villes.filter(v => v.sourceId)) {
+						if(coordsInsideCity(ville, startPos.x, startPos.y)) {
+							var linkPoint = computeLinkPointForCity(ville);
+							startPos.x = linkPoint.x;
+							startPos.y = linkPoint.y;
+							villeSourceId = ville.sourceId;
+							clearOldLink(ville);
+							canvas.addEventListener('mousemove', mouseMoveListener);
+							canvas.addEventListener('touchmove', mouseMoveListener);
+						}
+					}
+				}
+
+				function mouseMoveListener(event) {
+				  lineCoord = getClientOffset(event);
+				  clearCanvas();
+				  drawLine(startPos, lineCoord);
+				}
+
+				function mouseupListener(event) {
+					canvas.removeEventListener('mousemove', mouseMoveListener);
+					canvas.removeEventListener('touchmove', mouseMoveListener);
+					var mouseCoord = getClientOffset(event);
+					for(var ville of villes.filter(v => v.targetId)) {
+						if(coordsInsideCity(ville, mouseCoord.x, mouseCoord.y)) {
+							ville.linkedToId = villeSourceId;
+							clearCanvas();
+						}
+					}
+					villeSourceId = null;
+				}
+
+				function clearCanvas() {
+				   ctx.clearRect(0, 0, canvas.width, canvas.height);
+				   drawLinks();
+				   drawVilles();
+				}
+
+				canvas.addEventListener('mousedown', mouseDownListener);
+				canvas.addEventListener('mouseup', mouseupListener);
+
+				canvas.addEventListener('touchstart', mouseDownListener);
+				canvas.addEventListener('touchend', mouseupListener);
+			}
+		</script>
     </head>
-    <body>
+    <body onload="initCanvas()">
 		<div html-file="header/header.html"></div>
         <main>
-            
-            <div>
-				QR
+			<div class="qr_question_frame" id="frame1" style = "display:block">
+				<div class="qr_question_titre">
+					<i>Lousonna</i> est le terme latin pour : 
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_11" name="qcm_11" onclick='checkQcm(this, "Non, ce n’est pas ce nom-là…")'><label for="qcm_11">Le Locle</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_12" name="qcm_12" onclick='checkQcm(this, "Oui, exactement !")'><label for="qcm_12">Lausanne</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_13" name="qcm_13" onclick='checkQcm(this, "Non, ce n’est pas celui-ci…")'><label for="qcm_13">Lavaux</label></div>
+					<div class="qr_qcm_correction"></div>
+					<div class="qr_qcm_reponse">
+						<button class="qr_qcm_nextButton" onclick="goToFrame('frame2')">Question suivante</button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="qr_question_frame" id="frame2">
+				<div class="qr_question_titre">
+					Essaye de relier les noms des villes modernes avec leur nom romain :
+				</div>
+				
+				<canvas id="canvas" width="500" height="400"></canvas>
 			</div>
         </main>
     </body>
