@@ -1,9 +1,16 @@
+function checkQcmHidden(elem, reponse) {
+	selectCurrentInputOnly(elem);
+	var qcmContainer = getQcmContainer(elem);
+	var correction = qcmContainer.getElementsByClassName("qr_qcm_correction")[0];
+	correction.innerHTML = reponse;
+}
+
 function checkQcm(elem, reponse) {
 	selectCurrentInputOnly(elem);
 	var qcmContainer = getQcmContainer(elem);
 	var correction = qcmContainer.getElementsByClassName("qr_qcm_correction")[0];
 	correction.innerHTML = reponse;
-	correction.style.visibility = "visible";
+	correction.style.display = "block";
 	for(var e of qcmContainer.getElementsByClassName("qr_qcm_reponse")) {
 		e.style.visibility = "visible";
 	}
@@ -18,6 +25,21 @@ function selectCurrentInputOnly(elem) {
 
 function getQcmContainer(elem) {
 	return elem.closest(".qr_question_qcm_container");
+}
+
+function correctionQuestionnaire(questionnaireId, questionnaireResultat) {
+	var total = 0;
+	var resultat = 0;
+	for(elem of document.getElementById(questionnaireId).children) {
+		if(elem.className == "qr_question_qcm_container") {
+			total ++;
+			if(elem.getElementsByClassName("qr_qcm_correction")[0].innerHTML == "true") {
+					resultat ++;
+			}
+		}
+	}
+	var resultatDiv = document.getElementById(questionnaireResultat);
+	resultatDiv.innerHTML = resultat + " / " + total;
 }
 
 function goToFrame(frameId) {

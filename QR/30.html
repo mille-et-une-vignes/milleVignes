@@ -13,15 +13,120 @@
 				QUESTION POUR UN ROMAIN
 			</div>
 			
-			<div class="qr_question_titre">
-				Comment s’appelait un professeur durant l’Antiquité ?
-			</div>
+			<div class="qr_questionnaire" id="questionnaire">
+				<div class="qr_question_titre">
+					Comment s’appelait un professeur durant l’Antiquité ?
+				</div>
+					
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_11" name="qcm_11" onclick='checkQcmHidden(this, "true")'><label for="qcm_11">Précepteur</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_12" name="qcm_12" onclick='checkQcmHidden(this, "false")'><label for="qcm_12">Précurseur</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_13" name="qcm_13" onclick='checkQcmHidden(this, "false")'><label for="qcm_13">Maître</label></div>
+					<div class="qr_qcm_correction"></div>
+				</div>
 				
-			<div class="qr_question_qcm_container">
-				<div class="qr_question_qcm"><input type="checkbox" id="qcm_11" name="qcm_11" onclick='selectCurrentInputOnly(this)'><label for="qcm_11">Précepteur</label></div>
-				<div class="qr_question_qcm"><input type="checkbox" id="qcm_12" name="qcm_12" onclick='selectCurrentInputOnly(this)'><label for="qcm_12">Précurseur</label></div>
-				<div class="qr_question_qcm"><input type="checkbox" id="qcm_13" name="qcm_13" onclick='selectCurrentInputOnly(this)'><label for="qcm_13">Maître</label></div>
+				<div class="qr_question_titre">
+					Pourquoi beaucoup d’enfants n’allaient pas à l’école au Moyen-Âge ?
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_11" name="qcm_11" onclick='checkQcmHidden(this, "false")'><label for="qcm_11">Ils n’en avaient pas envie</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_12" name="qcm_12" onclick='checkQcmHidden(this, "true")'><label for="qcm_12">Ils devaient travailler à la ferme avec leurs parents</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_13" name="qcm_13" onclick='checkQcmHidden(this, "false")'><label for="qcm_13">L’école était trop loin</label></div>
+					<div class="qr_qcm_correction"></div>
+				</div>
+				
+				<div class="qr_question_titre">
+					Qui est le dieu romain du théâtre ?
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_11" name="qcm_11" onclick='checkQcmHidden(this, "false")'><label for="qcm_11">Dionysos</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_12" name="qcm_12" onclick='checkQcmHidden(this, "true")'><label for="qcm_12">Bacchus</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_13" name="qcm_13" onclick='checkQcmHidden(this, "false")'><label for="qcm_13">Jupiter</label></div>
+					<div class="qr_qcm_correction"></div>
+				</div>
+				
+				<div class="qr_question_titre">
+					A l’époque romaine, Colombier était :
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_11" name="qcm_11" onclick='checkQcmHidden(this, "false")'><label for="qcm_11">Une ville</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_12" name="qcm_12" onclick='checkQcmHidden(this, "false")'><label for="qcm_12">Un village</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_13" name="qcm_13" onclick='checkQcmHidden(this, "true")'><label for="qcm_13">Un domaine agricole</label></div>
+					<div class="qr_qcm_correction"></div>
+				</div>
+				
+				<div class="qr_question_titre">
+					Qui sont les fondateurs légendaires de Rome ? 
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_11" name="qcm_11" onclick='checkQcmHidden(this, "true")'><label for="qcm_11">Romulus et Rémus</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_12" name="qcm_12" onclick='checkQcmHidden(this, "false")'><label for="qcm_12">Cicéron et Caton</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_13" name="qcm_13" onclick='checkQcmHidden(this, "false")'><label for="qcm_13">César et Pompée</label></div>
+					<div class="qr_qcm_correction"></div>
+				</div>
+				
+				<div class="qr_question_titre">
+					Comment les romains nommaient les toilettes publiques ?
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_11" name="qcm_11" onclick='checkQcmHidden(this, "false")'><label for="qcm_11">Latrines</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_12" name="qcm_12" onclick='checkQcmHidden(this, "true")'><label for="qcm_12">Foricae</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_13" name="qcm_13" onclick='checkQcmHidden(this, "false")'><label for="qcm_13">Atrium</label></div>
+					<div class="qr_qcm_correction"></div>
+				</div>
+				
+				<div class="qr_question_titre">
+					Qui est Isabelle de Charrière ?
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_11" name="qcm_11" onclick='checkQcmHidden(this, "false")'><label for="qcm_11">Une actrice de théâtre</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_12" name="qcm_12" onclick='checkQcmHidden(this, "true")'><label for="qcm_12">Une femme de lettres</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_13" name="qcm_13" onclick='checkQcmHidden(this, "false")'><label for="qcm_13">Une joueuse d’échecs</label></div>
+					<div class="qr_qcm_correction"></div>
+				</div>
+				
+				<div class="qr_question_titre">
+					Lesquels sont des dieux du panthéon celte ?
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_11" name="qcm_11" onclick='checkQcmHidden(this, "true")'><label for="qcm_11">Cernunnos, Epona, Taranis, Tarvos, Dagda</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_12" name="qcm_12" onclick='checkQcmHidden(this, "false")'><label for="qcm_12">Jupiter, Pluton, Vénus, Minerve, Bacchus</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_13" name="qcm_13" onclick='checkQcmHidden(this, "false")'><label for="qcm_13">Thor, Odin, Tyr, Frigg, Loki</label></div>
+					<div class="qr_qcm_correction"></div>
+				</div>
+				
+				<div class="qr_question_titre">
+					Qu’est-ce qui se trouve sous le château de Colombier ?
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_11" name="qcm_11" onclick='checkQcmHidden(this, "false")'><label for="qcm_11">Un labyrinthe</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_12" name="qcm_12" onclick='checkQcmHidden(this, "false")'><label for="qcm_12">Un temple</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_13" name="qcm_13" onclick='checkQcmHidden(this, "true")'><label for="qcm_13">Une villa romaine</label></div>
+					<div class="qr_qcm_correction"></div>
+				</div>
+				
+				<div class="qr_question_titre">
+					Qui pouvait être citoyen romain ?
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_11" name="qcm_11" onclick='checkQcmHidden(this, "false")'><label for="qcm_11">Les femmes romaines mariées</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_12" name="qcm_12" onclick='checkQcmHidden(this, "true")'><label for="qcm_12">Les hommes romains libres</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_13" name="qcm_13" onclick='checkQcmHidden(this, "false")'><label for="qcm_13">Les affranchis</label></div>
+					<div class="qr_qcm_correction"></div>
+				</div>
 			</div>
+
+			<button class="qr_qcm_nextButton" onclick="correctionQuestionnaire('questionnaire', 'questionnaireResultat')">Corriger</button>
+			<div class="qr_questionnaireResultat" id="questionnaireResultat"></div>
         </main>
     </body>
 </html>
