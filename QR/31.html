@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>Mille et une vignes</title>
+        <link rel="stylesheet" type="text/css" href="../style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+		<script type="text/javascript" src="../script.js"></script>
+    </head>
+    <body>
+		<div html-file="header/header.html"></div>
+        <main>
+            <div class="qr_titre">
+				ENIGMES D’ISABELLE
+			</div>
+			
+			<div class="qr_question_frame" id="frame1" style = "display:block">
+				<div class="qr_question_titre">
+					Je n’ai pas de tête pourtant j’ai un chapeau. Je n’ai pas de chaussures pourtant j’ai un pied. Qui suis-je ?
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_11" name="qcm_11" onclick="checkQcm(this, 'Oh non, c’était un champignon.')"><label for="qcm_11">Un verre à vin</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_12" name="qcm_12" onclick='checkQcm(this, "Bravo !")'><label for="qcm_12">Un champignon</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_13" name="qcm_13" onclick="checkQcm(this, 'Non, c’était un champignon.')"><label for="qcm_13">Une note de musique</label></div>
+					<div class="qr_qcm_correction"></div>
+					<div class="qr_qcm_reponse">
+						<button class="qr_qcm_nextButton" onclick="goToFrame('frame2')">passer à la seconde question !</button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="qr_question_frame" id="frame2">
+				<div class="qr_question_titre">
+					Je ne suis pas vivant, mais je grandis ; je n'ai pas de poumons, mais j'ai besoin d'air ; je n'ai pas de bouche, mais l'eau me tue. Qui suis-je ? 
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_21" name="qcm_21" onclick='checkQcm(this, "Eh non, c’était le feu")'><label for="qcm_21">Un arbre</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_22" name="qcm_22" onclick='checkQcm(this, "Exactement !")'><label for="qcm_22">Un feu</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_23" name="qcm_23" onclick='checkQcm(this, "Non, c’était le feu.")'><label for="qcm_23">Une flûte</label></div>
+					<div class="qr_qcm_correction"></div>
+					<div class="qr_qcm_reponse">
+						<button class="qr_qcm_nextButton" onclick="goToFrame('frame3')">Question suivante</button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="qr_question_frame" id="frame3">
+				<div class="qr_question_titre">
+					Qu'est-ce qui augmente, mais ne peut jamais descendre ?
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_31" name="qcm_31" onclick='checkQcm(this, "Oui, exactement !")'><label for="qcm_31">L’âge</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_32" name="qcm_32" onclick='checkQcm(this, "Le temps file plutôt, c’était l’âge la bonne réponse !")'><label for="qcm_32">Le temps</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_33" name="qcm_33" onclick='checkQcm(this, "Non, c’était l’âge !")'><label for="qcm_33">Les impôts</label></div>
+					<div class="qr_qcm_correction"></div>
+					<div class="qr_qcm_reponse">
+						<button class="qr_qcm_nextButton" onclick="goToFrame('frame4')">Question suivante</button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="qr_question_frame" id="frame4">
+				<div class="qr_question_titre">
+					Combien de fois peut-on soustraire 1 à 1111 ? 
+				</div>
+				
+				<div class="qr_question_qcm_container">
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_41" name="qcm_41" onclick='checkQcm(this, "Oui, exactement !")'><label for="qcm_41">1</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_42" name="qcm_42" onclick='checkQcm(this, "Non, seulement une fois, après 1 sera soustrait à 1110.")'><label for="qcm_42">1111</label></div>
+					<div class="qr_question_qcm"><input type="checkbox" id="qcm_43" name="qcm_43" onclick='checkQcm(this, "Non, seulement une fois, après 1 sera soustrait à 1110.")'><label for="qcm_43">1110</label></div>
+					<div class="qr_qcm_correction"></div>
+					<div class="qr_qcm_reponse">
+						<button class="qr_qcm_nextButton" onclick="goToFrame('frame1')">Revenir au début</button>
+					</div>
+				</div>
+			</div>
+        </main>
+    </body>
+</html>
