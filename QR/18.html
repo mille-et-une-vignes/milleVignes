@@ -9,18 +9,18 @@
     <script>
         function zoneDetail(zoneNb) {
             var txt = "";
-            if(zoneNb == 1) {
-                txt = "Zone taberna : Une taberna est un local ouvert sur la rue qui est destiné à la vente de produits. Nous pouvions y acheter du pain, du vin, des vêtements ou encore des bijoux. C’est de là d’ailleurs que vient le mot “taverne” qui désigne un lieu où nous pouvons boire et manger au Moyen-Âge.";
-            } else if(zoneNb == 2) {
-                txt = "Zone portique : Les Romains aimaient les galeries couvertes et en construisait même sur les trottoirs devant les domus, dans les marchés ou sur le forum. Le portique pouvait être simple comme celui-ci, ou double avec une seconde rangée de colonnes. Le portique permet de fournir de l’ombre et de la fraicheur pendant les mois d’été.";
+            if(zoneNb == 2) {
+                txt = "<i>Taberna</i> : Une <i>taberna</i> est un local ouvert sur la rue qui est destiné à la vente de produits. Nous pouvions y acheter du pain, du vin, des vêtements ou encore des bijoux. C’est de là d’ailleurs que vient le mot “taverne” qui désigne un lieu où nous pouvons boire et manger au Moyen-Âge.";
+            } else if(zoneNb == 1) {
+                txt = "Portique : Les Romains aimaient les galeries couvertes et en construisaient même sur les trottoirs devant les <i>domus</i>, dans les marchés ou sur le forum. Le portique pouvait être simple comme celui-ci, ou double avec une seconde rangée de colonnes. Le portique permet de fournir de l’ombre et de la fraicheur pendant les mois d’été.";
             } else if(zoneNb == 3) {
-                txt = "Zone triclinium : Le triclinium est la salle de banquet des Romains. La salle comptait une table est des lits de banquet. Chaque lit pouvait accueillir trois personnes couchées et le placement des convives autour de la table était régit par des règles strictes.";
+                txt = "<i>Triclinium</i> : Le <i>triclinium</i> est la salle de banquet des Romains. La salle comptait une table et des lits de banquet. Chaque lit pouvait accueillir trois personnes couchées et le placement des convives autour de la table était régi par des règles strictes.";
             } else if(zoneNb == 4) {
-                txt = "Zone cubiculum : Le cubiculum est une chambre privée qui servait autant à dormir qu’à organiser des réunions de travail. Ces chambres sont accessibles directement depuis l’atrium, mais dans les périodes les plus tardives pouvaient aussi être adjacentes au péristyle.";
+                txt = "<i>Cubiculum</i> : Le <i>cubiculum</i> est une chambre privée qui servait autant à dormir qu’à organiser des réunions de travail. Ces chambres sont accessibles directement depuis l’<i>atrium</i>, mais dans les périodes les plus tardives pouvaient aussi être adjacentes au péristyle.";
             } else if(zoneNb == 5) {
-                txt = "Zone atrium et impluvium : Cette pièce centrale se nomme l’atrium, il s’agit d’une cour intérieure avec un bassin (impluvium) permettant de récolter les eaux de pluie via le compluvium, une ouverture dans le toit. L’eau était précieuse et était utilisée pour les besoins domestiques tels que la cuisine, la lessive, les bains ou encore le ménage.";
+                txt = "<i>Atrium</i> et <i>impluvium</i> : Cette pièce centrale se nomme l’<i>atrium</i>, il s’agit d’une cour intérieure avec un bassin (<i>impluvium</i>) permettant de récolter les eaux de pluie via le <i>compluvium</i>, une ouverture dans le toit. L’eau était précieuse et était utilisée pour les besoins domestiques tels que la cuisine, la lessive, les bains ou encore le ménage.";
             } else if(zoneNb == 6) {
-                txt = "Zone péristyle : Le péristyle est une galerie couverte bordée de colonnes qui entoure une cour intérieure d’une domus. Très agréable pour se promener et prendre l’air quand il pleut ! Il existe aussi des péristyles extérieurs qui font par exemple tout le tour d’un temple.";
+                txt = "Péristyle : Le péristyle est une galerie couverte bordée de colonnes qui entoure une cour intérieure d’une <i>domus</i>. Très agréable pour se promener et prendre l’air quand il pleut ! Il existe aussi des péristyles extérieurs qui font par exemple tout le tour d’un temple.";
             }
             document.getElementById("infoZones").innerHTML = txt;
         }
@@ -33,7 +33,7 @@
 			</div>
 			<div class="qr_text">
 				<p>
-					En ville, les Romains habitaient une domus (maison familiale) ou une insula (immeuble jusqu’à cinq étages), tandis qu’à la campagne, ils occupaient une villa, c’est-à-dire un grand bâtiment avec un pars urbana pour habiter et une pars rustica pour les travaux agricoles. Balade-toi dans cette domus typique des cités romaines comme Pompéi ou plus proche d’ici à Avenches. Il vous suffit de cliquer sur un endroit qui vous intrigue pour en savoir plus à son sujet ! 
+					En ville, les Romains habitaient une <i>domus</i> (maison familiale) ou une <i>insula</i> (immeuble jusqu’à cinq étages), tandis qu’à la campagne, ils occupaient une villa, c’est-à-dire un grand bâtiment avec une <i>pars urbana</i> pour habiter et une <i>pars rustica</i> pour les travaux agricoles. Baladez-vous dans cette <i>domus</i> typique des cités romaines comme Pompéi ou plus proche d’ici à Avenches. Il vous suffit de cliquer sur un endroit qui vous intrigue pour en savoir plus à son sujet ! 
 				</p>
 			</div>
             <figure id="projectsvg" class="qr_illustration">
