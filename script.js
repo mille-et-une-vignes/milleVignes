@@ -40,7 +40,7 @@ function correctionQuestionnaire(questionnaireId, questionnaireResultat) {
 		}
 	}
 	var resultatDiv = document.getElementById(questionnaireResultat);
-	resultatDiv.innerHTML = resultat + " / " + total;
+	resultatDiv.innerHTML = "Résultat : " + resultat + " / " + total;
 }
 
 function goToFrame(frameId) {
