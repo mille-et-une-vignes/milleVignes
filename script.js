@@ -34,7 +34,8 @@ function correctionQuestionnaire(questionnaireId, questionnaireResultat) {
 		if(elem.className == "qr_question_qcm_container") {
 			total ++;
 			if(elem.getElementsByClassName("qr_qcm_correction")[0].innerHTML == "true") {
-					resultat ++;
+				elem.style.backgroundColor = "rgba(144, 238, 144, 0.7)";
+				resultat ++;
 			}
 		}
 	}
