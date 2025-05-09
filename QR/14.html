@@ -6,78 +6,177 @@
 		<meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
 		<script type="text/javascript" src="../script.js"></script>
     </head>
-	<script>
-		function drawCanvas() {
-			drawTextBloc("LES MAGISTRATS", 20, 20, 150, 30, 16, "#c5e0b4");
-			drawTextBloc("LE SENAT", 330, 20, 150, 30, 16, "#f8cbad");
-			drawTextBloc("LES COMICES", 20, 100, 150, 30, 16, "#ffd966");
-			drawTextBloc("LES CENSEURS", 330, 100, 150, 30, 16, "#bdd7ee");
-			
-			drawArrow(180, 115, 320, 115, 4, "#ffd966");
-			drawArrow(405, 90, 405, 60, 4, "#bdd7ee");
-			drawArrow(320, 35, 180, 35, 4, "#f8cbad");
-			drawArrow(95, 90, 95, 60, 4, "#ffd966");
-			
-			drawTextBloc("élisent", 200, 90, 110, 20, 12, "#ffffff");
-			drawTextBloc("nomment", 340, 70, 60, 20, 12, "#ffffff");
-			drawTextBloc("conseille et contrôle", 200, 40, 110, 20, 12, "#ffffff");
-			drawTextBloc("élisent", 100, 70, 50, 20, 12, "#ffffff");
-		}
-	</script>
+	
     <body onload="drawCanvas()">
 		<div html-file="header/header.html"></div>
-        <main>
-            <div class="qr_titre">
+
+		<main>
+			<div class="qr_titre">
 				LA POLITIQUE ROMAINE
 			</div>
-			
+
 			<div class="qr_text">
 				<p>
 					La politique romaine est organisée et régie par quatre entités principales, sélectionnez celle qui vous intéresse pour en savoir plus sur ses fonctions et ses pouvoirs.
 				</p>
 			</div>
-			
+
 			<canvas style="max-width: 100%" id="canvas" width="500" height="150"></canvas>
-			
-			<table style="color: black;">
-				<tr>
-					<td style="background-color:#c5e0b4; width: 50%; max-width: 250px; vertical-align: top; padding: 0.5rem;">
+
+			<div id="info" style="margin-top: 1rem; font-weight: normal; font-size: 1rem;"></div>
+		</main>
+
+		<script>
+			let blocs = [];
+
+			const contenus = {
+				magistrats: `
+					<div style="background-color:#c5e0b4; padding: 0.5rem;">
 						Élus pour une année, les magistrats proposent des lois et les font appliquer.
 						<ul style="padding: 0 1rem; margin: 0.1rem;">
-							<li >Deux consuls dirigent Rome et ses armées.</li>
+							<li>Deux consuls dirigent Rome et ses armées.</li>
 							<li>Les préteurs s'occupent de la justice.</li>
 							<li>Les édiles gèrent l'approvisionnement de Rome, ainsi que la police et la voirie.</li>
 							<li>Les tribuns de la plèbe défendent les intérêts des plébéiens face aux patriciens.</li>
 						</ul>
-					</td>
-					<td style="background-color:#f8cbad; width: 50%; max-width: 250px; vertical-align: top;padding: 0.5rem;">
+					</div>
+				`,
+				senat: `
+					<div style="background-color:#f8cbad; padding: 0.5rem;">
 						Élu à vie, le sénat est composé de 300 anciens magistrats.
 						<ul style="padding: 0 1rem; margin: 0.1rem;">
 							<li>Ils s'occupent de la politique extérieure, c'est-à-dire entre Rome et les barbares qui les entourent.</li>
 							<li>Ils gèrent le trésor public, ce qui signifie qu'ils sont responsables de l'utilisation de la fortune de la cité.</li>
 							<li>Ils règlent les questions de religion, notamment l'instauration de nouveaux cultes dans la capitale.</li>
 						</ul>
-					</td>
-				</tr>
-				<tr>
-					<td style="background-color:#ffd966; width: 50%; max-width: 250px; vertical-align: top;padding: 0.5rem;">
-						<p>
-							Les comices centuriates sont une assemblée du peuple romain, qui est chargée de voter des lois, d'élire les magistrats et les censeurs et de voter les condamnations.
-						</p>
-						<p>
-							Les comices sont divisés en groupes de citoyens, nommés centuries. Les citoyens romains étaient répartis dans les centuries en fonction de leur richesse. Les plus riches votaient en premier et dès que la majorité était atteinte, le vote prenait fin avant que les plus pauvres aient pu voter.
-						</p>
-					</td>
-					<td style="background-color:#bdd7ee; width: 50%; max-width: 250px; vertical-align: top;padding: 0.5rem;">
-						<p>
-							Élus pour 5 ans, les censeurs s'occupent du recensement des citoyens romains afin de les répartir par centurie et de calculer les impôts que chacun devrait payer.
-						</p>
-						<p>
-							Les censeurs nommaient les membres du sénat romain. Ils étaient chargés de la surveillance des moeurs et pouvaient intervenir dans la vie quotidienne pour interdire les agissements qu'ils jugeaient scandaleux, comme le luxe tapageur ou le mode vestimentaire d'une personne.
-						</p>
-					</td>
-				</tr>
-			</table>
-        </main>
-    </body>
+					</div>
+				`,
+				comices: `
+					<div style="background-color:#ffd966; padding: 0.5rem;">
+						<p>Les comices centuriates sont une assemblée du peuple romain, qui est chargée de voter des lois, d'élire les magistrats et les censeurs et de voter les condamnations.</p>
+						<p>Les comices sont divisés en groupes de citoyens, nommés centuries. Les citoyens romains étaient répartis dans les centuries en fonction de leur richesse. Les plus riches votaient en premier et dès que la majorité était atteinte, le vote prenait fin avant que les plus pauvres aient pu voter.</p>
+					</div>
+				`,
+				censeurs: `
+					<div style="background-color:#bdd7ee; padding: 0.5rem;">
+						<p>Élus pour 5 ans, les censeurs s'occupent du recensement des citoyens romains afin de les répartir par centurie et de calculer les impôts que chacun devrait payer.</p>
+						<p>Les censeurs nommaient les membres du sénat romain. Ils étaient chargés de la surveillance des moeurs et pouvaient intervenir dans la vie quotidienne pour interdire les agissements qu'ils jugeaient scandaleux, comme le luxe tapageur ou le mode vestimentaire d'une personne.</p>
+					</div>
+				`
+			};
+
+			function drawCanvas() {
+				blocs = [
+					{ label: "LES MAGISTRATS", x: 20, y: 20, w: 150, h: 30, color: "#c5e0b4", key: "magistrats" },
+					{ label: "LE SENAT", x: 330, y: 20, w: 150, h: 30, color: "#f8cbad", key: "senat" },
+					{ label: "LES COMICES", x: 20, y: 100, w: 150, h: 30, color: "#ffd966", key: "comices" },
+					{ label: "LES CENSEURS", x: 330, y: 100, w: 150, h: 30, color: "#bdd7ee", key: "censeurs" },
+				];
+
+				const canvas = document.getElementById("canvas");
+				const ctx = canvas.getContext("2d");
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+				blocs.forEach(b => drawTextBloc(b.label, b.x, b.y, b.w, b.h, 16, b.color));
+
+				drawArrow(180, 115, 320, 115, 4, "#ffd966");
+				drawArrow(405, 90, 405, 60, 4, "#bdd7ee");
+				drawArrow(320, 35, 180, 35, 4, "#f8cbad");
+				drawArrow(95, 90, 95, 60, 4, "#ffd966");
+
+				drawTextBloc("élisent", 200, 90, 110, 20, 12, "#ffffff");
+				drawTextBloc("nomment", 340, 70, 60, 20, 12, "#ffffff");
+				drawTextBloc("conseille et contrôle", 200, 40, 110, 20, 12, "#ffffff");
+				drawTextBloc("élisent", 100, 70, 50, 20, 12, "#ffffff");
+				
+				canvas.addEventListener("mousemove", function (e) {
+					const rect = canvas.getBoundingClientRect();
+					const x = e.clientX - rect.left;
+					const y = e.clientY - rect.top;
+
+					let hovering = false;
+
+					for (let b of blocs) {
+						if (x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h) {
+							hovering = true;
+							break;
+						}
+					}
+
+					canvas.style.cursor = hovering ? "pointer" : "default";
+				});
+			}
+
+			function drawTextBloc(text, x, y, width, height, fontSize, bgColor) {
+				const canvas = document.getElementById("canvas");
+				const ctx = canvas.getContext("2d");
+
+				ctx.fillStyle = bgColor;
+				ctx.fillRect(x, y, width, height);
+				ctx.fillStyle = "black";
+				ctx.font = fontSize + "px Arial";
+				ctx.textAlign = "center";
+				ctx.textBaseline = "middle";
+				ctx.fillText(text, x + width / 2, y + height / 2);
+			}
+
+			function drawArrow(x1, y1, x2, y2, lineWidth, color) {
+				const canvas = document.getElementById("canvas");
+				const ctx = canvas.getContext("2d");
+				const headLength = 10; // longueur du triangle
+
+				const dx = x2 - x1;
+				const dy = y2 - y1;
+				const angle = Math.atan2(dy, dx);
+
+				// point où s'arrête la ligne (un peu avant la tête)
+				const x2Line = x2 - (headLength - 1) * Math.cos(angle);
+				const y2Line = y2 - (headLength - 1) * Math.sin(angle);
+
+				// ligne principale
+				ctx.beginPath();
+				ctx.moveTo(x1, y1);
+				ctx.lineTo(x2Line, y2Line);
+				ctx.strokeStyle = color;
+				ctx.lineWidth = lineWidth;
+				ctx.stroke();
+
+				// triangle de la pointe (légèrement "pénétrant" dans la ligne)
+				ctx.beginPath();
+				ctx.moveTo(x2, y2);
+				ctx.lineTo(
+					x2 - headLength * Math.cos(angle - Math.PI / 6),
+					y2 - headLength * Math.sin(angle - Math.PI / 6)
+				);
+				ctx.lineTo(
+					x2 - headLength * Math.cos(angle + Math.PI / 6),
+					y2 - headLength * Math.sin(angle + Math.PI / 6)
+				);
+				ctx.closePath();
+				ctx.fillStyle = color;
+				ctx.fill();
+			}
+
+			document.addEventListener("DOMContentLoaded", function () {
+				const canvas = document.getElementById("canvas");
+				canvas.addEventListener("click", function (e) {
+					const rect = canvas.getBoundingClientRect();
+					const x = e.clientX - rect.left;
+					const y = e.clientY - rect.top;
+
+					for (let b of blocs) {
+						if (x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h) {
+							showText(b.key);
+							break;
+						}
+					}
+				});
+			});
+
+			function showText(key) {
+				const container = document.getElementById("info");
+				container.innerHTML = contenus[key] || "";
+			}
+		</script>
+	</body>
 </html>
